@@ -6,7 +6,7 @@ A modern and responsive portfolio website built with React and Vite, showcasing 
 
 ##🚀 The website is live at:
 
- ``` javascript
+ ``` 
  https://rishabh-riyal-portfolio.vercel.app
 ```
 
