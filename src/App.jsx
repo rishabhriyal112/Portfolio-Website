@@ -164,7 +164,7 @@ export default function App() {
                 <span className="block text-indigo-600 mt-2">Rishabh Riyal</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-500">
-                Front-End Developer & ML Engineer crafting beautiful web experiences and intelligent solutions.
+                Frontend Developer skilled in creating responsive and interactive web interfaces using React.
               </p>
               <div className="flex gap-4">
                 <button
