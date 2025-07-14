@@ -4,9 +4,8 @@
 
 A modern and responsive portfolio website built with React and Vite, showcasing professional experience, projects, and skills. This portfolio is designed to present my work and capabilities in an elegant and interactive way.
 
-
-2. ```md
-🚀 The website is live at: [https://rishabh-riyal-portfolio.vercel.app](https://rishabh-riyal-portfolio.vercel.app)
+🚀 The website is live at:
+ ```md  [https://rishabh-riyal-portfolio.vercel.app](https://rishabh-riyal-portfolio.vercel.app) ```md
 
 
 ## 📌 About
