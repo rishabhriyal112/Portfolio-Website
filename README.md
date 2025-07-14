@@ -85,12 +85,9 @@ npm run lint
 
 ```
 portfolio_website/
-├── public/              # Static assets
-│   ├── creation-ground.png
-│   └── rr.png
+├── public/             
 ├── src/                 # Source code
 │   ├── assets/         # Project assets
-│   │   └── rishabh01.jpg
 │   ├── App.jsx         # Main application component
 │   ├── App.css         # Component styles
 │   ├── index.css       # Global styles
@@ -102,16 +99,8 @@ portfolio_website/
 ```
 
 ## 🔧 Dependencies
-
-### Main Dependencies
 - React and React DOM
 - TailwindCSS for styling
-
-### Development Dependencies
-- Vite for build tooling and development server
-- ESLint for code linting
-- Various React-specific ESLint plugins
-- TypeScript types for React
 
 ## 🤝 Contributing
 
