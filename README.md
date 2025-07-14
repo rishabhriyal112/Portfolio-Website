@@ -1,6 +1,6 @@
 # Portfolio Website
 
-![Portfolio Website Interface](./public/interface-screenshot.png)
+![Portfolio Website Interface](./public/interface.png)
 
 A modern and responsive portfolio website built with React and Vite, showcasing professional experience, projects, and skills. This portfolio is designed to present my work and capabilities in an elegant and interactive way.
 
