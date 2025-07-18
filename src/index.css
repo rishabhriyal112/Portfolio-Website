@@ -31,6 +31,14 @@
   .animate-scale {
     animation: scale 0.3s ease-out;
   }
+  
+  .mobile-card {
+    @apply p-4 sm:p-8;
+  }
+  
+  .mobile-flex {
+    @apply flex-col sm:flex-row items-start sm:items-center;
+  }
 }
 
 @keyframes fadeIn {
@@ -83,6 +91,25 @@ html {
 
 ::-webkit-scrollbar-thumb {
   @apply bg-indigo-500 rounded-full hover:bg-indigo-600 transition-colors;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Ensure navbar buttons are visible on desktop */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
 }
 
 /* Section transitions */
