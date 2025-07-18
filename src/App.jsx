@@ -135,7 +135,7 @@ export default function App() {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`text-gray-800 hover:text-indigo-600 capitalize font-medium transition-colors duration-300 px-3 py-2 text-base
+                  className={`text-gray-800 hover:text-indigo-600 capitalize font-medium transition-colors duration-300 px-3 py-2 text-base cursor-pointer
                     ${
                       activeSection === section
                         ? "text-indigo-600 border-b-2 border-indigo-600"
@@ -151,7 +151,7 @@ export default function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-800 hover:text-indigo-600 focus:outline-none"
+                className="p-2 rounded-md text-gray-800 hover:text-indigo-600 focus:outline-none cursor-pointer"
               >
                 <svg
                   className="h-6 w-6"
@@ -191,7 +191,7 @@ export default function App() {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="block w-full px-3 py-3 text-left text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-50 capitalize"
+                className="block w-full px-3 py-3 text-left text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-50 capitalize cursor-pointer"
               >
                 {section}
               </button>
