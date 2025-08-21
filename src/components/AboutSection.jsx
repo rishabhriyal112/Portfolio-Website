@@ -5,41 +5,34 @@ import profileImage from "../assets/images/rishabh01.jpg";
 const AboutSection = () => {
 
   return (
-    <section id="about" className="py-20 bg-emerald-50">
+    <section id="about" className="py-12 md:py-20 bg-indigo-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle>About Me</SectionTitle>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-1 items-center max-w-4xl mx-auto">
           {/* Image Section */}
           <div className="flex justify-center md:justify-start">
             <div className="relative">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-emerald-100 to-emerald-200">
+              <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-100 to-indigo-200">
                 <img 
                   src={profileImage} 
                   alt="Rishabh Riyal" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-700">Available for work</span>
-                </div>
-              </div>
+
             </div>
           </div>
           
           {/* Content Section */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900">Frontend Developer & Aspiring Full-Stack</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Web Developer & Computer Science Student</h3>
               <p className="text-gray-600 leading-relaxed">
-                I'm a passionate web developer with strong expertise in frontend technologies. I create responsive, 
-                user-friendly interfaces using React, JavaScript, and modern CSS frameworks.
+                I am a Web Developer and B.Tech Computer Science student skilled in HTML, CSS, JavaScript, React, Tailwind CSS, and Git. I enjoy building responsive websites, landing pages, and user interfaces, and have experience with version control, APIs, and debugging.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Currently expanding my skills by learning backend development to become a full-stack developer. 
-                I'm focused on mastering server-side technologies and database management to build complete web applications.
+                I am currently expanding my skills by learning Node.js, Express.js, MongoDB, and Next.js to become a full-stack developer, while continuously improving through real-world projects.
               </p>
             </div>
             

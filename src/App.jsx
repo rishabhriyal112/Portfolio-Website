@@ -8,10 +8,13 @@ import SkillCard from "./components/SkillCard";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import { scrollToSection as scrollToSectionUtil, throttle } from "./utils/scrollUtils";
+import { fetchGitHubRepos } from "./utils/githubApi";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const sections = useMemo(
     () => ["home", "about", "skills", "projects", "contact"],
@@ -37,6 +40,17 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
 
+  useEffect(() => {
+    const loadProjects = async () => {
+      setLoading(true);
+      const githubProjects = await fetchGitHubRepos();
+      setProjects(githubProjects);
+      setLoading(false);
+    };
+    
+    loadProjects();
+  }, []);
+
   const scrollToSection = (sectionId) => {
     scrollToSectionUtil(sectionId);
     setIsMenuOpen(false);
@@ -57,15 +71,15 @@ export default function App() {
       <AboutSection />
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-white">
+      <section id="skills" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>Technical Skills</SectionTitle>
           
           <div className="grid md:grid-cols-2 gap-12">
             {/* Programming Languages */}
-            <div className="bg-emerald-50 rounded-2xl p-8">
+            <div className="bg-indigo-50 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-indigo-500 rounded-full mr-3"></span>
                 Programming Languages
               </h3>
               <div className="space-y-4">
@@ -101,9 +115,9 @@ export default function App() {
             </div>
             
             {/* Tools & Version Control */}
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <div className="bg-slate-50 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                <span className="w-2 h-2 bg-gray-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-slate-500 rounded-full mr-3"></span>
                 Tools & Version Control
               </h3>
               <div className="space-y-4">
@@ -120,9 +134,9 @@ export default function App() {
             </div>
             
             {/* Currently Learning */}
-            <div className="bg-yellow-50 rounded-2xl p-8">
+            <div className="bg-amber-50 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
                 Currently Learning
               </h3>
               <div className="space-y-4">
@@ -133,7 +147,7 @@ export default function App() {
                 ].map((skill) => (
                   <div key={skill.name} className="flex justify-between items-center p-3 bg-white rounded-lg">
                     <span className="font-medium text-gray-800">{skill.name}</span>
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">
+                    <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">
                       Learning
                     </span>
                   </div>
@@ -145,7 +159,7 @@ export default function App() {
       </section>
 
       {/* Education Section */}
-      <section className="py-20 bg-emerald-50">
+      <section className="py-12 md:py-20 bg-blue-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>Education</SectionTitle>
           
@@ -181,8 +195,8 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div className="flex-1">
                   <div className="flex items-center mb-3">
-                    <div className="w-3 h-3 bg-emerald-500 rounded-full mr-3"></div>
-                    <span className="text-emerald-600 font-semibold">2022</span>
+                    <div className="w-3 h-3 bg-indigo-500 rounded-full mr-3"></div>
+                    <span className="text-indigo-600 font-semibold">2022</span>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">
                     SBM Public School
@@ -190,12 +204,12 @@ export default function App() {
                   <p className="text-lg text-gray-600 mb-3">
                     Higher Secondary (PCM)
                   </p>
-                  <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
+                  <span className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
                     80%
                   </span>
                 </div>
                 <div className="mt-4 md:mt-0">
-                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
                     <span className="text-2xl">📚</span>
                   </div>
                 </div>
@@ -232,7 +246,7 @@ export default function App() {
       </section>
 
       {/* Interests Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-indigo-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>Interests & Passions</SectionTitle>
           
@@ -288,37 +302,28 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 sm:py-32 bg-white">
+      <section id="projects" className="py-12 md:py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <SectionTitle>Projects</SectionTitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  title: "E-Commerce Platform",
-                  description: "Built an e-commerce website with product listings, shopping cart, and checkout process using React and Tailwind CSS.",
-                  image: "https://images.pexels.com/photos/38519/macbook-laptop-ipad-apple-38519.jpeg",
-                  tags: ["React", "Vite", "Tailwind CSS"],
-                  link: "https://github.com/rishabhriyal12",
-                },
-
-                {
-                  title: "Creation Ground",
-                  description: "No-code ML platform using Streamlit for data upload, model training, and result export with automated EDA.",
-                  image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
-                  tags: ["Python", "Streamlit", "Machine Learning"],
-                  link: "https://creation-ground.streamlit.app/",
-                },
-              ].map((project) => (
-                <ProjectCard key={project.title} project={project} />
-              ))}
-            </div>
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600"></div>
+                <p className="mt-4 text-gray-600">Loading projects...</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projects.map((project) => (
+                  <ProjectCard key={project.title} project={project} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Certifications Section */}
-      <section className="py-20 bg-emerald-50">
+      <section className="py-12 md:py-20 bg-indigo-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>Certifications</SectionTitle>
           
@@ -345,7 +350,7 @@ export default function App() {
                 provider: "Forage",
                 description: "Professional data visualization techniques",
                 icon: "📊",
-                color: "bg-emerald-500",
+                color: "bg-indigo-500",
                 link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_wKZpaQJ4n7JMS8kTp_1733334247307_completion_certificate.pdf"
               }
             ].map((cert, index) => (
