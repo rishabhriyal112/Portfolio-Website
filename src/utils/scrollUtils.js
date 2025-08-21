@@ -12,12 +12,12 @@ export const throttle = (func, delay) => {
     const currentTime = Date.now();
     
     if (currentTime - lastExecTime > delay) {
-      func.apply(this, args);
+      func(...args);
       lastExecTime = currentTime;
     } else {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        func.apply(this, args);
+        func(...args);
         lastExecTime = Date.now();
       }, delay - (currentTime - lastExecTime));
     }

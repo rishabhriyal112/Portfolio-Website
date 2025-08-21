@@ -43,12 +43,21 @@ export default function App() {
   useEffect(() => {
     const loadProjects = async () => {
       setLoading(true);
-      const githubProjects = await fetchGitHubRepos();
-      setProjects(githubProjects);
-      setLoading(false);
+      try {
+        const githubProjects = await fetchGitHubRepos();
+        setProjects(githubProjects);
+      } catch (error) {
+        console.error('Failed to load projects:', error);
+        setProjects([]);
+      } finally {
+        setLoading(false);
+      }
     };
     
-    loadProjects();
+    loadProjects().catch(error => {
+      console.error('Failed to initialize project loading:', error);
+      setLoading(false);
+    });
   }, []);
 
   const scrollToSection = (sectionId) => {

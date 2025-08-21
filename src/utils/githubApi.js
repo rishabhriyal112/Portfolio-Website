@@ -20,6 +20,7 @@ const fetchReadmeTechStack = async (repoName) => {
     
     return techPatterns.filter(tech => content.includes(tech));
   } catch (error) {
+    console.warn(`Failed to fetch README for ${repoName}:`, error.message);
     return [];
   }
 };
