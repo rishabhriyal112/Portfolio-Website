@@ -35,7 +35,7 @@ const HeroSection = ({ scrollToSection }) => {
                 View My Work
               </button>
               <a
-                href="https://drive.google.com/uc?export=download&id=1Zt6n3zEtDYPniMcOgRHkLiWB7cK1SJFr"
+                href="./public/Rishabh_Riyal_Resume.pdf"
                 download="Rishabh_Riyal_Resume.pdf"
                 className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 text-center"
               >
