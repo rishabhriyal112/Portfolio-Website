@@ -28,7 +28,7 @@ const fetchReadmeTechStack = async (repoName) => {
 export const fetchGitHubRepos = async () => {
   try {
     const response = await fetch(
-      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=50`
     );
     
     if (!response.ok) {
@@ -38,12 +38,15 @@ export const fetchGitHubRepos = async () => {
     const repos = await response.json();
     
     // Filter specific repositories
-    const targetRepos = ['ecommerce-website', 'Netflix', 'Amazon Clone', 'creation-ground'];
+    const targetRepos = ['ecommerce-website', 'Netflix', 'Amazon Clone', 'creation-ground', 'ai_trip_planner', 'Diabetic-Retinopathy-Detection'];
     
     const filteredRepos = repos.filter(repo => targetRepos.some(target => 
       repo.name.toLowerCase().includes(target.toLowerCase()) ||
       target.toLowerCase().includes(repo.name.toLowerCase())
     ));
+    
+    console.log('All repos:', repos.map(r => r.name));
+    console.log('Filtered repos:', filteredRepos.map(r => r.name));
     
     // Fetch README tech stack for each repo
     const reposWithTechStack = await Promise.all(
@@ -83,7 +86,7 @@ export const fetchGitHubRepos = async () => {
       updated: new Date().toLocaleDateString()
     };
     
-    return [...reposWithTechStack, creationGround];
+    return [creationGround, ...reposWithTechStack];
       
   } catch (error) {
     console.error('Error fetching GitHub repositories:', error);

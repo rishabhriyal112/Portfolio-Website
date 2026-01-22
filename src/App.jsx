@@ -123,6 +123,25 @@ export default function App() {
               </div>
             </div>
             
+            {/* Machine Learning & AI */}
+            <div className="bg-purple-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                Machine Learning & AI
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { name: "TensorFlow" },
+                  { name: "Deep Learning" },
+                  { name: "Neural Networks" }
+                ].map((skill) => (
+                  <div key={skill.name} className="p-3 bg-white rounded-lg">
+                    <span className="font-medium text-gray-800">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
             {/* Tools & Version Control */}
             <div className="bg-slate-50 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
@@ -141,18 +160,20 @@ export default function App() {
                 ))}
               </div>
             </div>
-            
+          </div>
             {/* Currently Learning */}
-            <div className="bg-amber-50 rounded-2xl p-8">
+            <div className="bg-amber-50 rounded-2xl p-8 md:col-span-2">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
                 <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
                 Currently Learning
               </h3>
               <div className="space-y-4">
                 {[
-                  { name: "Node.js" },
-                  { name: "MongoDB" },
-                  { name: "Express.js" }
+                  { name: "PyTorch" },
+                  { name: "Computer Vision" },
+                  { name: "NLP" },
+                  { name: "Data Science" },
+                  { name: "Model Deployment" }
                 ].map((skill) => (
                   <div key={skill.name} className="flex justify-between items-center p-3 bg-white rounded-lg">
                     <span className="font-medium text-gray-800">{skill.name}</span>
@@ -163,7 +184,6 @@ export default function App() {
                 ))}
               </div>
             </div>
-          </div>
         </div>
       </section>
 

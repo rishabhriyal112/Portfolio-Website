@@ -20,10 +20,10 @@ const HeroSection = ({ scrollToSection }) => {
                 Rishabh Riyal
               </h1>
               <p className="text-base md:text-lg text-white/90 leading-relaxed">
-                Web Developer & Computer Science Student
+                Web Developer & ML Engineer | Computer Science Student
               </p>
               <p className="text-sm md:text-base text-white/80 leading-relaxed">
-                Building responsive websites with React and modern web technologies.
+                Building responsive websites with React and developing ML models with Python & TensorFlow.
               </p>
             </div>
             
